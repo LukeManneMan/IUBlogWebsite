@@ -21,3 +21,5 @@ Check to see how CRUD will work with Quill and the posts on the website.
 
 In the DB side, need to add a column in the Posts table inculding image paths for each individual post, see how that will work will multiple images in a post.
 
+*note, previously installed php, mysql standalone, gave many headaches with manual configuration, after research found laragon which does it all
+for you in Windows, going to try that
