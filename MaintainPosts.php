@@ -2,6 +2,10 @@
 <header>
     <?php
         require 'Header.php';
+        if ($_SESSION['admin'] != true) {
+            header("Location: login.php");
+            exit();
+        }
     ?>
 </header>
 <body>

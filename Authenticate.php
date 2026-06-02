@@ -10,6 +10,8 @@
         {
             //return true;
             echo "login successful";
+            session_start();
+            $_SESSION["admin"] = true;
         } 
         else 
         {
@@ -18,4 +20,11 @@
         }
     }
 
+    function logout() {
+        session_start();
+        $_SESSION["admin"] = false;
+        session_destroy();
+        header("Location: Index.php");
+        exit();
+    }
 ?>
