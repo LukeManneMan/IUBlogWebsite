@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<header>
+
+
 
     <nav>
         <ul>
@@ -8,4 +8,3 @@
         </ul>
     </nav>
     <h1>Luke's Travel Blog</h1>
-</header>

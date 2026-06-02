@@ -1,10 +1,24 @@
 <!DOCTYPE html>
 <body>
+
+    <?php
+        require 'Db.php';
+        require 'Authenticate.php';
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+            {
+                $username = $_POST['username'];
+                $password = $_POST['password'];
+                authenticate($username, $password, $conn);
+            }
+    ?>
+
     <h1>Login</h1>
-    <form>
+    <form action="login.php" method="post">
         <label>Username</label>
-        <input placeholder="Enter Username">
+        <input name="username" placeholder="Enter Username">
         <label>Password</label>
-        <input placeholder="Enter Password">
+        <input type = "password" name="password" placeholder="Enter Password">
+        <button type="submit">Login</button>
     </form>
 </body>
