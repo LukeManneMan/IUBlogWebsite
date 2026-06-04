@@ -5,7 +5,6 @@ Need to create MySQL DB
 Create PHP files to build the website and db connections.
 Once the PHP is looking good, get started on the JS and CSS 
 
-Get more detail on how Quill works to export the HTML into the DB
 Get more info on how Bootstrap works to implement into the project
 
 As per feedback from the Phase 1 submission, I must have a deep look into the security vulnerabilities.
@@ -23,3 +22,5 @@ In the DB side, need to add a column in the Posts table inculding image paths fo
 
 *note, previously installed php, mysql standalone, gave many headaches with manual configuration, after research found laragon which does it all
 for you in Windows, going to try that
+
+No longer using Quill for the text editor, quite a pain to export the HTML to the DB, switching to TinyMCE
