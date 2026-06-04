@@ -12,9 +12,7 @@
                 {
                     echo '<li><a href="MaintainPosts.php">Maintain Posts</a></li>';
                     echo '<li><a href="CreatePost.php">Create Post</a></li>';
-                    echo '<button type="button">Logout</button>';
-                    //luke fix this shit
-                    echo '<a href="authenticate.php?logout">Logout</a>';
+                    echo '<li><a href="logout.php">Logout</a></li>';
                 } 
                 else 
                 {

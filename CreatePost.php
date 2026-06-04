@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<header>
+
+<head>
+    <script src="https://cdn.tiny.cloud/1/gqevzyif3ufilfcutx66jpa3ec36x3nkx2fb225cel33r8ui/tinymce/8/tinymce.min.js" referrerpolicy="origin" crossorigin="anonymous"></script>
     <?php
         require 'Header.php';
         if ($_SESSION['admin'] != true) {
@@ -7,28 +9,41 @@
             exit();
         }
     ?>
+    <?php
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+        {
+            require 'Db.php';
+            $title = $_POST['title'];
+            $desc = $_POST['description'];
+            $body = $_POST['body'];
+            $dateCreated = date('Y-m-d H:i:s');
+            $sql = $conn->prepare("insert into lukeblog.posts (PostTitle, ShortDesc, PostBody, DateCreated) values (?, ?, ?, ?)");
+            $sql->execute([$title, $desc, $body, $dateCreated]);
+        }
+    ?>
+</head>
+
+<header>
+
 </header>
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet">
-    <form>
+    <form action="CreatePost.php" method="POST">
         <label>Enter post title</label>
-        <input placeholder="Title">
+        <input name="title" placeholder="Title">
         <label>Enter post description</label>
-        <input placeholder="description">
+        <input name="description" placeholder="description">
         <label>Post Body</label>
-        <div id="editor">
-            <h2>Demo Content</h2>
-            <p>Preset build with <code>snow</code> theme, and some common formats.</p>
-        </div>
+        <textarea name="body" placeholder="Post Body" id="default"></textarea>
         <button>Submit</button>
     </form>
 
     <script>
-    const quill = new Quill('#editor', {
-        theme: 'snow'
-    });
+        tinymce.init({
+            selector: 'textarea#default',
+            plugins: 'advlist link image lists'
+        });
     </script>
+
 </body>
 <footer>
     <?php

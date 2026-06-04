@@ -16,7 +16,9 @@
     echo "<ul>";
     while($row = $result->fetch(PDO::FETCH_ASSOC))
         {
-             echo "<li>".$row["ID"]." - ".$row["PostTitle"]."</li>";
+            echo "<a href='EditPost.php?id=".$row['ID']."'>";        
+            echo "<li>".$row["ID"]." - ".$row["PostTitle"]."</li>";
+            echo "</a>";
         }
     echo "</ul>";
     ?>
