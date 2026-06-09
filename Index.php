@@ -18,6 +18,7 @@
                 echo "<h3>".$row['PostTitle']."</h3>";
                 echo "<p>".$row['ShortDesc']."</p>";
                 echo "</a>";
+                
             }
         ?>
         
