@@ -12,11 +12,14 @@
             echo "login successful";
             session_start();
             $_SESSION["admin"] = true;
+            header("Location: Index.php");
+            exit();
         } 
         else 
         {
             //return false;
             echo "login failed";
+            return false;
         }
     }
 

@@ -30,8 +30,10 @@
     <form action="CreatePost.php" method="POST">
         <label>Enter post title</label>
         <input name="title" placeholder="Title">
+        <br>
         <label>Enter post description</label>
         <input name="description" placeholder="description">
+        <br>
         <label>Post Body</label>
         <textarea name="body" placeholder="Post Body" id="default"></textarea>
         <button>Submit</button>

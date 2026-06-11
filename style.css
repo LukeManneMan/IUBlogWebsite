@@ -1,0 +1,30 @@
+.welcome-banner{
+    background-color: #2FA084;
+    color: black;
+}
+
+#footer {
+    background-color: #2FA084 !important;
+    color: black;
+}
+
+.post-card{
+    background-color: white;
+}
+
+.a {
+    color: black;
+}
+
+.li {
+    color: black;
+}
+
+.nav-link {
+    color: black;
+}
+
+#main-nav{
+    background-color: #6FCF97;
+    color: black;
+}

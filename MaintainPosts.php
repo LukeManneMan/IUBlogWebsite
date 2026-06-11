@@ -9,7 +9,10 @@
     ?>
 </header>
 <body>
-    <h2>Posts</h2>
+    <div class="container-fluid text-center">
+        <h2>Posts</h2>
+    </div>
+    
     <?php
     require 'Db.php';
     $result = $conn->query('Select * from lukeblog.posts');
