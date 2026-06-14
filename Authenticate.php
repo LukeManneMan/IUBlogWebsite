@@ -8,10 +8,9 @@
 
         if ($result && password_verify($password, $result["Password"])) 
         {
-            //return true;
+            $_SESSION["admin"] = true;
             echo "login successful";
             session_start();
-            $_SESSION["admin"] = true;
             header("Location: Index.php");
             exit();
         } 

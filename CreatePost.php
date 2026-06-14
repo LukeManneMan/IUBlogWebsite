@@ -27,17 +27,31 @@
 
 </header>
 <body>
-    <form action="CreatePost.php" method="POST">
-        <label>Enter post title</label>
-        <input name="title" placeholder="Title">
-        <br>
-        <label>Enter post description</label>
-        <input name="description" placeholder="description">
-        <br>
-        <label>Post Body</label>
-        <textarea name="body" placeholder="Post Body" id="default"></textarea>
-        <button>Submit</button>
-    </form>
+    <div class="container-fluid text-center">
+        <h1>Create Post</h1>
+    </div>
+
+    <div class="container">
+        <form action="CreatePost.php" method="POST">
+            <div>
+                <label class="form-label">Enter post title</label>
+                <input class="form-control" name="title" placeholder="Title">
+            </div>
+
+            <br>
+            <div>
+                <label class="form-label">Enter post description</label>
+                <input class="form-control" name="description" placeholder="description">
+            </div>
+            <br>
+            <div>
+                <label class="form-label">Post Body</label>
+                <textarea class="form-control" name="body" placeholder="Post Body" id="default"></textarea>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
 
     <script>
         tinymce.init({

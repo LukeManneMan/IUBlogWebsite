@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<header>
+    <?php
+        require 'Header.php';
+    ?>
+</header>
 <body>
 
     <?php
@@ -12,13 +17,27 @@
                 authenticate($username, $password, $conn);
             }
     ?>
-
-    <h1>Login</h1>
-    <form action="login.php" method="post">
-        <label>Username</label>
-        <input name="username" placeholder="Enter Username">
-        <label>Password</label>
-        <input type = "password" name="password" placeholder="Enter Password">
-        <button type="submit">Login</button>
-    </form>
+    <div class="container-fluid text-center">
+        <h1> Admin Login</h1>
+    </div>
+    <div class="container">
+        <form action="login.php" method="post">
+            <div>
+                <label class="form-label">Username</label>
+                <input class="form-control" name="username" placeholder="Enter Username">
+            </div>
+            <br>
+            <div>
+                <label class="form-label">Password</label>
+                <input class="form-control" type = "password" name="password" placeholder="Enter Password">
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+    </div>
 </body>
+<footer>
+    <?php
+        require 'Footer.php';
+    ?>
+</footer>

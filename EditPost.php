@@ -27,19 +27,39 @@
 ?>
 </header>
 <body>
-    <h1>Edit Post</h1>
-    <form method="POST" action="EditPost.php?id=<?= $id ?>">
-        <label for="title">Edit Post Title</label>
-        <input type="text" id="title" name="title" value="<?php echo $post['PostTitle']; ?>" required>
-        <br>
-        <label for="description">Edit Post Description</label>
-        <input type="text" id="description" name="description" value="<?php echo $post['ShortDesc']; ?>" required>
-        <br>
-        <label for="content">Edit Post Body</label>
-        <textarea id="default" name="content" required><?php echo $post['PostBody']; ?></textarea>
-        <br>
-        <button type="submit">Update Post</button>
-    </form>
+    <div class="container text-center">
+        <h1>Edit Post</h1>
+    </div>
+
+    <div>
+        <button>Delete Post</button>
+    </div>
+    
+    
+    <div class="container">
+        <form method="POST" action="EditPost.php?id=<?= $id ?>">
+            <div>
+                <label for="title" class="form-label">Edit Post Title</label>
+                <input type="text" id="title" name="title" value="<?php echo $post['PostTitle']; ?>" class="form-control" required>
+            </div>
+
+            <br>
+            <div>
+                <label for="description" class="form-label">Edit Post Description</label>
+                <input type="text" id="description" name="description" value="<?php echo $post['ShortDesc']; ?>" class="form-control" required>
+            </div>
+
+            <br>
+            <div>
+                <label for="content" class="form-label">Edit Post Body</label>
+                <textarea id="default" name="content" class="form-control" required><?php echo $post['PostBody']; ?></textarea>
+            </div>
+
+            <br>
+            <button type="submit" class="btn btn-primary">Update Post</button>
+        </form>
+    </div>
+
 
     <script>
         tinymce.init({

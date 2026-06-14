@@ -8,8 +8,17 @@ $sql->execute([$id]);
 $post = $sql->fetch(PDO::FETCH_ASSOC);
 ?>
 
-<h1><?= $post['PostTitle'] ?></h1>
-<p><?= $post['DateCreated'] ?></p>
-<div><?= $post['PostBody'] ?></div>
+<div class="container-fluid text-center">
+    <h1><?= $post['PostTitle'] ?></h1>
+</div>
+
+<div class="container-fluid text-left">
+    <p>Post Created: <?=date('M j Y',strtotime($post['DateCreated'])) ?></p>
+</div>
+
+
+<div class="container-fluid text-center">
+    <p><?= $post['PostBody'] ?></p>
+</div>
 
 <?php require 'Footer.php'; ?>
