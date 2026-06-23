@@ -30,10 +30,6 @@
     <div class="container text-center">
         <h1>Edit Post</h1>
     </div>
-
-    <div>
-        <button>Delete Post</button>
-    </div>
     
     
     <div class="container">

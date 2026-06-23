@@ -22,7 +22,7 @@
                             echo "<a href='Post.php?id=".$row['ID']."'>";
                             echo "<img src=".$row['ImgPath'].">";
                         echo "</div>";
-                        echo "<div class='col-3'>";
+                        echo "<div class='col-3' id='post-desc'>";
                             echo "<h3>".$row['PostTitle']."</h3>";
                             echo "<p>".$row['ShortDesc']."</p>";
                             echo "</a>";

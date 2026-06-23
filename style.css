@@ -8,6 +8,11 @@
     color: black;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 .post-card{
     background-color: white;
 }
@@ -27,4 +32,14 @@
 #main-nav{
     background-color: #6FCF97;
     color: black;
+}
+
+#post-desc a{
+    color: black !important;
+    text-decoration: none !important;
+}
+
+#maintain-posts a{
+    color: black !important;
+    text-decoration: none !important;
 }

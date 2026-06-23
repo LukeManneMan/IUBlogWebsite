@@ -17,8 +17,26 @@
             $desc = $_POST['description'];
             $body = $_POST['body'];
             $dateCreated = date('Y-m-d H:i:s');
-            $sql = $conn->prepare("insert into lukeblog.posts (PostTitle, ShortDesc, PostBody, DateCreated) values (?, ?, ?, ?)");
-            $sql->execute([$title, $desc, $body, $dateCreated]);
+
+            $imgPath = '';
+            if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) 
+            {
+                $uploadPath = 'images/';
+                $filename = time() . '_' . basename($_FILES['image']['name']);
+                $targetPath = $uploadPath . $filename;
+
+                if (move_uploaded_file($_FILES['image']['tmp_name'], $targetPath)) 
+                {
+                    $imgPath = $targetPath;
+                } 
+                else 
+                {
+                    echo "Error uploading image.";
+                }
+            }
+
+            $sql = $conn->prepare("insert into lukeblog.posts (PostTitle, ShortDesc, PostBody, DateCreated, ImgPath) values (?, ?, ?, ?, ?)");
+            $sql->execute([$title, $desc, $body, $dateCreated, $imgPath]);
         }
     ?>
 </head>
@@ -32,12 +50,16 @@
     </div>
 
     <div class="container">
-        <form action="CreatePost.php" method="POST">
+        <form action="CreatePost.php" method="POST" enctype="multipart/form-data">
             <div>
                 <label class="form-label">Enter post title</label>
                 <input class="form-control" name="title" placeholder="Title">
             </div>
-
+            <br>
+            <div>
+                <label class="form-label">Upload Post Image</label>
+                <input type="file" class="form-control" name="image" accept="image/*">
+            </div>
             <br>
             <div>
                 <label class="form-label">Enter post description</label>

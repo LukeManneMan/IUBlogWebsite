@@ -18,6 +18,7 @@ $post = $sql->fetch(PDO::FETCH_ASSOC);
 
 
 <div class="container-fluid text-center">
+    <img src="<?= $post['ImgPath'] ?>" alt="<?= $post['PostTitle'] ?>">
     <p><?= $post['PostBody'] ?></p>
 </div>
 
