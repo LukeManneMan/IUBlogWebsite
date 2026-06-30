@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 
-    <header>
-        <?php
-            require "Header.php" 
-        ?>
-    </header>
+
     <body>
+        <header>
+            <?php
+                require "Header.php";
+            ?>
+        </header>
         <div class="container-fluid text-center">
             <h2>About Page</h2>
         </div>
@@ -25,9 +26,10 @@
                     </P>
             </div>
         </div>
+        <footer>
+            <?php
+                require "Footer.php";
+            ?>
+        </footer>
     </body>
-    <footer>
-        <?php
-        require "Footer.php";
-        ?>
-    </footer>
+ 

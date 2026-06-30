@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<header>
-    <?php
-        require 'Header.php';
-    ?>
-</header>
-<body>
 
+<body>
+    <header>
+        <?php
+            require 'Header.php';
+        ?>
+    </header>
     <?php
         require 'Db.php';
         require 'Authenticate.php';
@@ -35,9 +35,9 @@
             <button type="submit" class="btn btn-primary">Login</button>
         </form>
     </div>
+    <footer>
+        <?php
+            require 'Footer.php';
+        ?>
+    </footer>
 </body>
-<footer>
-    <?php
-        require 'Footer.php';
-    ?>
-</footer>

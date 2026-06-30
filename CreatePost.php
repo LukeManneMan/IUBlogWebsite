@@ -2,13 +2,7 @@
 
 <head>
     <script src="https://cdn.tiny.cloud/1/gqevzyif3ufilfcutx66jpa3ec36x3nkx2fb225cel33r8ui/tinymce/8/tinymce.min.js" referrerpolicy="origin" crossorigin="anonymous"></script>
-    <?php
-        require 'Header.php';
-        if ($_SESSION['admin'] != true) {
-            header("Location: login.php");
-            exit();
-        }
-    ?>
+
     <?php
         if ($_SERVER['REQUEST_METHOD'] == 'POST') 
         {
@@ -17,6 +11,9 @@
             $desc = $_POST['description'];
             $body = $_POST['body'];
             $dateCreated = date('Y-m-d H:i:s');
+            
+            $allowed = '<p><h1><h2><h3><b><i><u><a><img><ul><li><ol><br>';
+            $body = strip_tags($_POST['body'], $allowed);
 
             $imgPath = '';
             if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) 
@@ -35,16 +32,23 @@
                 }
             }
 
+
             $sql = $conn->prepare("insert into lukeblog.posts (PostTitle, ShortDesc, PostBody, DateCreated, ImgPath) values (?, ?, ?, ?, ?)");
             $sql->execute([$title, $desc, $body, $dateCreated, $imgPath]);
         }
     ?>
 </head>
 
-<header>
-
-</header>
 <body>
+    <header>
+        <?php
+            require 'Header.php';
+            if ($_SESSION['admin'] != true) {
+                header("Location: login.php");
+                exit();
+            }
+        ?>
+    </header>
     <div class="container-fluid text-center">
         <h1>Create Post</h1>
     </div>
@@ -53,17 +57,17 @@
         <form action="CreatePost.php" method="POST" enctype="multipart/form-data">
             <div>
                 <label class="form-label">Enter post title</label>
-                <input class="form-control" name="title" placeholder="Title">
+                <input class="form-control" name="title" placeholder="Title" required>
             </div>
             <br>
             <div>
                 <label class="form-label">Upload Post Image</label>
-                <input type="file" class="form-control" name="image" accept="image/*">
+                <input type="file" class="form-control" name="image" accept="image/*" required>
             </div>
             <br>
             <div>
                 <label class="form-label">Enter post description</label>
-                <input class="form-control" name="description" placeholder="description">
+                <input class="form-control" name="description" placeholder="description" required>
             </div>
             <br>
             <div>
@@ -75,16 +79,19 @@
         </form>
     </div>
 
+    <footer>
+        <?php
+            require 'Footer.php';
+        ?>
+    </footer>
+
     <script>
         tinymce.init({
             selector: 'textarea#default',
             plugins: 'advlist link image lists'
         });
+
+
     </script>
 
 </body>
-<footer>
-    <?php
-        require 'Footer.php';
-    ?>
-</footer>

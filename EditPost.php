@@ -2,9 +2,9 @@
 <head>
     <script src="https://cdn.tiny.cloud/1/gqevzyif3ufilfcutx66jpa3ec36x3nkx2fb225cel33r8ui/tinymce/8/tinymce.min.js" referrerpolicy="origin" crossorigin="anonymous"></script>
 </head>
-<header>
+
 <?php
-    require 'Header.php';
+
     require 'Db.php';
 
 
@@ -18,6 +18,9 @@
         $description = $_POST['description'];
         $content = $_POST['content'];
 
+        $allowed = '<p><h1><h2><h3><b><i><u><a><img><ul><li><ol><br>';
+        $content = strip_tags($_POST['content'], $allowed);
+
         $updateSql = $conn->prepare("UPDATE lukeblog.posts SET PostTitle = ?, ShortDesc = ?, PostBody = ? WHERE ID = ?");
         $updateSql->execute([$title, $description, $content, $id]);
 
@@ -25,8 +28,14 @@
         exit();
     }
 ?>
-</header>
+
 <body>
+
+    <header>
+        <?php
+            require 'Header.php';
+        ?>
+    </header>
     <div class="container text-center">
         <h1>Edit Post</h1>
     </div>
@@ -52,9 +61,17 @@
             </div>
 
             <br>
-            <button type="submit" class="btn btn-primary">Update Post</button>
+            <div >
+                <button type="submit" class="btn btn-primary">Update Post</button>
+            </div>
         </form>
     </div>
+
+    <footer>
+        <?php
+            require 'Footer.php'
+        ?>
+    </footer>
 
 
     <script>
